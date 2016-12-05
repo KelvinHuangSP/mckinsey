@@ -1,22 +1,42 @@
+<!DOCTYPE html>
 <html lang="en" >
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Angular Material style sheet -->
-        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-    </head>
-    <body ng-app="mckinseyApp" ng-cloak>
-        <!-- Angular Material requires Angular.js Libraries -->
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
 
-        <!-- Angular Material Library -->
-        <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+  <title>McKinsey</title>
+  <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,700'>
+  <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
+  <link rel="stylesheet" href="./assets/app.css"/>
 
-        <!-- Your application bootstrap  -->
-        <script type="text/javascript">
-            angular.module('mckinseyApp', ['ngMaterial']);
-        </script>
-    </body>
+  <script src="./bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+  <script src="./bower_components/angular/angular.min.js" type="text/javascript"></script>
+  <script src="./bower_components/angular-aria/angular-aria.min.js" type="text/javascript"></script>
+  <script src="./bower_components/angular-animate/angular-animate.min.js" type="text/javascript"></script>
+  <script src="./bower_components/angular-material/angular-material.min.js" type="text/javascript"></script>
+  <script src="./bower_components/angular-ui-router/release/angular-ui-router.min.js" type="text/javascript"></script>
+
+
+  <script src="./src/app.js" type="text/javascript"></script>
+  <script src="./src/login/login.js" type="text/javascript"></script>
+
+  <script src="./src/users/services/UsersDataService.js" type="text/javascript"></script>
+  <script src="./src/users/user-cmp.js" type="text/javascript"></script>
+  
+</head>
+
+<body ng-cloak layout="column" ng-app="mk-app">
+
+  <md-toolbar layout="row" class="md-toolbar-tools">
+    <md-button class="menu md-icon-button" hide-gt-sm aria-label="Show User List">
+      <md-icon md-svg-icon="menu"></md-icon>
+    </md-button>
+    <h1>McKinsey</h1>
+  </md-toolbar>
+
+  <div ui-view></div>
+
+</body>
 </html>

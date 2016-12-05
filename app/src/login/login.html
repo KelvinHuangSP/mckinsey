@@ -1,0 +1,23 @@
+<div flex layout="row">
+
+  <form class="login-form">
+   
+    <div layout="row" layout-sm="column" layout-align="center center" layout-wrap class="form-elements-wrapper">
+
+      <md-button class="md-raised md-primary mk-login-button" ng-click="loginCtrl.showSMS()">S M S</md-button>
+      <md-button class="md-raised md-primary mk-login-button">Email</md-button>
+
+      <md-input-container flex="50" class="mk-login-input" ng-show="loginCtrl.sms">
+        <label></label>
+        <input required name="firstName" ng-model="$ctrl.selected.firstName" placeholder="Type in the received message here.">
+        <div ng-messages="projectForm.firstName.$error">
+          <div ng-message="required">This is required.</div>
+        </div>
+
+        <md-button class="md-raised md-primary mk-login-submit" ng-click="loginCtrl.submit()">submit</md-button>
+      </md-input-container>
+
+    </div>
+  </form>
+
+</div>
