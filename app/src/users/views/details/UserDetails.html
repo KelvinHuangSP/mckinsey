@@ -1,123 +1,143 @@
-<!--md-icon md-svg-icon="{{$ctrl.selected.avatar}}" class="avatar"></md-icon>
-<h2>{{$ctrl.selected.name}}</h2>
-<p>{{$ctrl.selected.content}}</p-->
-
-<md-button class="md-fab md-fab-bottom-right" ng-click="$ctrl.share($event)" aria-label="Share">
-  <md-icon md-svg-icon="share" ></md-icon>
-</md-button
 <md-content layout-padding>
     <form name="projectForm">
-      <div layout="row">
-        <md-input-container flex="50">
-          <label>First Name</label>
-          <input required name="firstName" ng-model="$ctrl.selected.firstName">
-          <div ng-messages="projectForm.firstName.$error">
-            <div ng-message="required">This is required.</div>
-          </div>
-        </md-input-container>
+        <div layout-gt-xs="row">
+            <md-input-container class="md-block" flex-gt-xs>
+                <label>Company</label>
+                <input name="company" ng-model="$ctrl.selected.company">
+            </md-input-container>
 
-        <md-input-container flex="50">
-          <label>Last Name</label>
-          <input required name="surname" ng-model="$ctrl.selected.surname">
-          <div ng-messages="projectForm.surname.$error">
-            <div ng-message="required">This is required.</div>
-          </div>
-        </md-input-container>
-      </div>
-
-      <md-input-container class="md-block">
-        <label>Description</label>
-        <input md-maxlength="30" required md-no-asterisk name="description" ng-model="$ctrl.selected.content">
-        <div ng-messages="projectForm.description.$error">
-          <div ng-message="required">This is required.</div>
-          <div ng-message="md-maxlength">The description must be less than 30 characters long.</div>
-        </div>
-      </md-input-container>
-
-      <div layout="row">
-        <md-input-container flex="50">
-          <label>Client Name</label>
-          <input required name="clientName" ng-model="$ctrl.selected.clientName">
-          <div ng-messages="projectForm.clientName.$error">
-            <div ng-message="required">This is required.</div>
-          </div>
-        </md-input-container>
-
-        <md-input-container flex="50">
-          <label>Project Type</label>
-          <md-select name="type" ng-model="$ctrl.selected.type" required>
-            <md-option value="app">Application</md-option>
-            <md-option value="web">Website</md-option>
-          </md-select>
-        </md-input-container>
-      </div>
-
-      <md-input-container class="md-block">
-        <label>Client Email</label>
-        <input required type="email" name="clientEmail" ng-model="$ctrl.selected.clientEmail"
-               minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
-
-        <div ng-messages="projectForm.clientEmail.$error" role="alert">
-          <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-            Your email must be between 10 and 100 characters long and look like an e-mail address.
-          </div>
-        </div>
-      </md-input-container>
-
-      <div layout-gt-xs="row">
-          <md-input-container class="md-block" flex-gt-xs>
-            <label>Company</label>
-            <input ng-model="$ctrl.selected.company">
-          </md-input-container>
-
-          <md-input-container>
-            <label>Enter date</label>
-            <md-datepicker ng-model="$ctrl.selected.submissionDate"></md-datepicker>
-          </md-input-container>
+            <md-input-container>
+                <label>Company Master Name</label>
+                <input name="companymaster" ng-model="$ctrl.selected.companymaster">
+            </md-input-container>
         </div>
 
         <md-input-container class="md-block">
-          <label>Address</label>
-          <input ng-model="$ctrl.selected.address">
+            <label>Salutation</label>
+            <input name="salutation" ng-model="$ctrl.selected.salutation">
+        </md-input-container>
+
+        <md-checkbox md-no-ink aria-label="Alumni" ng-model="$ctrl.selected.alumni" class="md-primary">
+            Alumni
+        </md-checkbox>
+
+        <div layout="row">
+            <md-input-container class="md-block" flex="50">
+                <label>Title</label>
+                <md-select name="title" ng-model="$ctrl.selected.title">
+                    <md-option value="administrator">Administrator</md-option>
+                    <md-option value="doctor">Doctor</md-option>
+                </md-select>
+            </md-input-container>
+
+            <md-input-container class="md-block" flex="50">
+                <label>Gender</label>
+                <md-select name="gender" ng-model="$ctrl.selected.gender">
+                    <md-option value="app">Male</md-option>
+                    <md-option value="web">Female</md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+
+        <div layout="row">
+            <md-input-container flex="33">
+                <label>First Name</label>
+                <input required name="firstName" ng-model="$ctrl.selected.firstName">
+                <div ng-messages="projectForm.firstName.$error">
+                    <div ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+            <md-input-container flex="33">
+                <label>Middle Name</label>
+                <input name="middleName" ng-model="$ctrl.selected.middleName">
+            </md-input-container>
+            <md-input-container flex="33">
+                <label>Last Name</label>
+                <input required name="surname" ng-model="$ctrl.selected.surname">
+                <div ng-messages="projectForm.surname.$error">
+                    <div ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+        </div>
+
+        <md-input-container class="md-block">
+            <label>Address</label>
+            <input ng-model="$ctrl.selected.address">
         </md-input-container>
 
         <md-input-container md-no-float class="md-block">
-          <input ng-model="$ctrl.selected.address2" placeholder="Address 2">
+            <input ng-model="$ctrl.selected.address2" placeholder="Address 2">
         </md-input-container>
 
         <div layout-gt-sm="row">
-          <md-input-container class="md-block" flex-gt-sm>
-            <label>Suburb</label>
-            <input ng-model="$ctrl.selected.surburb">
-          </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Suburb</label>
+                <input ng-model="$ctrl.selected.surburb">
+            </md-input-container>
 
-          <md-input-container class="md-block" flex-gt-sm>
-            <label>State</label>
-            <md-select ng-model="$ctrl.selected.state">
-                <md-option ng-repeat="state in $ctrl.states" value="{{state.state}}">
-                  {{state.state}}
-                </md-option>
-            </md-select>
-          </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>State</label>
+                <md-select ng-model="$ctrl.selected.state">
+                    <md-option value="NSW">NSW</md-option>
+                    <md-option value="ACT">ACT</md-option>
+                    <md-option value="QLD">QLD</md-option>
+                    <md-option value="NT">NT</md-option>
+                    <md-option value="WA">WA</md-option>
+                    <md-option value="TAS">TAS</md-option>
+                </md-select>
+            </md-input-container>
 
-          <md-input-container class="md-block" flex-gt-sm>
-            <label>Postal Code</label>
-            <input name="postalCode" ng-model="$ctrl.selected.postalCode" placeholder="1234"
-                   required ng-pattern="/^[0-9]{4}$/" md-maxlength="4">
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Postal Code</label>
+                <input name="postalCode" ng-model="$ctrl.selected.postalCode" placeholder="1234" ng-pattern="/^[0-9]{4}$/" md-maxlength="4">
+            </md-input-container>
 
-            <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
-              <div ng-message="required" class="my-message">You must supply a postal code.</div>
-              <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
-                code.
-              </div>
-              <div ng-message="md-maxlength" class="my-message">
-                Don't use the long version silly...we don't need to be that specific...
-              </div>
-            </div>
-          </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Country</label>
+                <input name="country" ng-model="$ctrl.selected.country">
+            </md-input-container>
         </div>
-      <div>
-        <md-button type="submit">Submit</md-button>
-      </div>
+
+        <div layout="row">
+            <md-input-container class="md-block" flex="50">
+                <label>Email</label>
+                <input required type="email" name="clientEmail" ng-model="$ctrl.selected.clientEmail"
+                       minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+
+                <div ng-messages="projectForm.clientEmail.$error" role="alert">
+                  <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                    Your email must be between 10 and 100 characters long and look like an e-mail address.
+                  </div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block" flex="25">
+                <label>Phone Number</label>
+                <input name="phone" ng-model="$ctrl.selected.phone"/>
+            </md-input-container>
+
+            <md-input-container class="md-block" flex="25">
+                <label>Mobile</label>
+                <input name="mobile" ng-model="$ctrl.selected.mobile"/>
+            </md-input-container>
+        </div>
+
+        <md-input-container class="md-block">
+            <label>Comments</label>
+            <input name="comments" ng-model="$ctrl.selected.comments" md-maxlength="350" required md-no-asterisk>
+            <div ng-messages="projectForm.comments.$error">
+              <div ng-message="required">This is required.</div>
+              <div ng-message="md-maxlength">The description must be less than 350 characters long.</div>
+            </div>
+        </md-input-container>
+
+        <div layout="row" layout-wrap>
+            <div flex="80">
+                <md-button type="submit" class="md-raised md-primary" ng-click="$ctrl.submit()">Save</md-button>
+            </div>
+            <div flex="22">
+                <md-button class="md-raised md-primary"><b>SUBMIT ALL !</b></md-button>
+            </div>
+        </div>
     </form>
 </md-content>

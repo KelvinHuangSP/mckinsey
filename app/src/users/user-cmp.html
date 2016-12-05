@@ -1,22 +1,25 @@
 <div flex layout="row">
-
   <!-- Container #3 -->
-  <md-sidenav class="md-whiteframe-4dp" md-is-locked-open="$mdMedia('gt-sm')"
-              md-component-id="left" ng-click="usr.toggleList()">
-    <!-- Custom UsersList component -->
-    <users-list
-        users="usr.users"
-        selected="usr.selected"
-        on-selected="usr.selectUser(user)">
-    </users-list>
+  <md-sidenav class="md-whiteframe-4dp" md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" ng-click="app.toggleList()">
+      <section layout="row" layout-sm="column" layout-align="center center" layout-wrap class="userListOptions" md-component-id="left">
+          <md-button class="md-raised md-primary">ALL</md-button>
+          <md-button class="md-raised md-primary">INCOMPLETE</md-button>
+      </section>
+
+      <md-select name="search" ng-model="app.search" placeholder="Sort users">
+          <md-option value="firstname">Sort by First Name</md-option>
+          <md-option value="surname">Sort by Surname</md-option>
+          <md-option value="search">Search<md-icon md-svg-icon="search"></md-icon></md-option>
+      </md-select>
+
+      <!-- Custom UsersList component -->
+      <users-list users="usr.users" selected="usr.selected" on-selected="usr.selectUser(user)"/>
   </md-sidenav>
 
   <!-- Container #4 -->
   <md-content flex id="content">
-    <!-- Custom UserDetails component -->
-    <user-details
-        selected="usr.selected" >
-    </user-details>
+      <!-- Custom UserDetails component -->
+      <user-details selected="usr.selected" ></user-details>
   </md-content>
 
 </div>
